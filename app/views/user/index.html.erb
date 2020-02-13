@@ -1,0 +1,26 @@
+<html>
+<h1>Photosite Users List</h1>
+<h3>There are <%= User.count('id') %> users</h3><br>
+<head>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<table style = "width:50%">
+  <tr>
+    <th>User</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+  </tr>
+  <% @users_all.each do |user| %>
+    <tr>
+      <td><%=link_to user.id ,{:action => "index", :controller => "photo", :id => user.id}%></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+    </tr>
+  <% end %>
+</table>
+</html>
